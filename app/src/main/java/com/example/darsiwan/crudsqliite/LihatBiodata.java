@@ -27,10 +27,9 @@ public class LihatBiodata extends AppCompatActivity {
         text4 = (TextView) findViewById(R.id.textView4);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM biodata WHERE nama = '" +
-                getIntent().getStringExtra("nama") + "'",null);
+                getIntent().getStringExtra("nama") + "'", null);
         cursor.moveToFirst();
-        if (cursor.getCount()>0)
-        {
+        if (cursor.getCount() > 0) {
             cursor.moveToPosition(0);
             text1.setText(cursor.getString(0).toString());
             text2.setText(cursor.getString(1).toString());
@@ -47,7 +46,6 @@ public class LihatBiodata extends AppCompatActivity {
             }
         });
     }
-
 
 
 }

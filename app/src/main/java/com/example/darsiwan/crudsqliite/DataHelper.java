@@ -1,8 +1,6 @@
 package com.example.darsiwan.crudsqliite;
 
 
-
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,6 +10,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "biodatadiri.db";
     private static final int DATABASE_VERSION = 1;
+
     public DataHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         // TODO Auto-generated constructor stub
@@ -23,9 +22,6 @@ public class DataHelper extends SQLiteOpenHelper {
         String sql = "create table biodata(no integer primary key, nama text null, tgl text null, jk text null);";
         Log.d("Data", "onCreate: " + sql);
         db.execSQL(sql);
-        sql = "INSERT INTO biodata (no, nama, tgl, jk) VALUES ('1', 'Darsiwan', '1996-07-12', 'Laki-laki');";
-        db.execSQL(sql);
-
     }
 
     @Override

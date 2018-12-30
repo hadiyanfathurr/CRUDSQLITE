@@ -26,10 +26,9 @@ public class UpdateBiodata extends AppCompatActivity {
         text4 = (EditText) findViewById(R.id.editText4);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM biodata WHERE nama = '" +
-                getIntent().getStringExtra("nama") + "'",null);
+                getIntent().getStringExtra("nama") + "'", null);
         cursor.moveToFirst();
-        if (cursor.getCount()>0)
-        {
+        if (cursor.getCount() > 0) {
             cursor.moveToPosition(0);
             text1.setText(cursor.getString(0).toString());
             text2.setText(cursor.getString(1).toString());
@@ -43,10 +42,10 @@ public class UpdateBiodata extends AppCompatActivity {
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                db.execSQL("update biodata set nama='"+
-                        text2.getText().toString() +"', tgl=' ', jk='"+
-                        text4.getText().toString() +"' where no='" +
-                        text1.getText().toString()+"'");
+                db.execSQL("update biodata set nama='" +
+                        text2.getText().toString() + "', tgl=' ', jk='" +
+                        text4.getText().toString() + "' where no='" +
+                        text1.getText().toString() + "'");
                 Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_LONG).show();
                 MainActivity.ma.RefreshList();
                 finish();
@@ -61,7 +60,6 @@ public class UpdateBiodata extends AppCompatActivity {
             }
         });
     }
-
 
 
 }
